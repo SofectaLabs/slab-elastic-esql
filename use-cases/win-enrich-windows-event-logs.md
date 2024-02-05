@@ -3,11 +3,9 @@
 ## Use Case
 This ESQL query can be used to enrich windows event logs with the Event Log Description that is currently mising from Windows logs and from Elastic internal enrichments. In some environments the Windows default language is non-English, which produces log events in the local languange.
 
-Enrichment source: 
-https://github.com/PerryvandenHondel/windows-event-id-list-csv/blob/master/windows-event-id.csv
-
 ## Pre-requisites:
-The enrichment source must be uploaded to Kibana so that the enrichments can be mapped properly. 
+The enrichment source must be uploaded to Kibana so that the enrichments can be mapped properly: https://github.com/PerryvandenHondel/windows-event-id-list-csv/blob/master/windows-event-id.csv
+Upload the file to a Elastic index and create a enrichment policy. 
 
 ## ESQL Query
 ```
