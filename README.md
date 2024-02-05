@@ -1,8 +1,9 @@
 # slab-elastic-esql
-Sofecta Labs Elastic ESQL repository. 
+Sofecta Labs Elastic ES|QL Repository. 
 
-This repository is used to document and share Elastic ESQL queries and their use-cases. 
+This repository is used to document and share Elastic ESQL use-cases and queries for anyone interested in Elastic ES|QL 
 
-The ESQL queries can be used in the Kibana Discover UI or using APIs:
-
-- https://www.elastic.co/guide/en/elasticsearch/reference/current/esql-rest.html
+# Resources
+- Elastic ESQL Getting Started: https://www.elastic.co/guide/en/elasticsearch/reference/current/esql-getting-started.html
+- Elastic ESQL REST API: https://www.elastic.co/guide/en/elasticsearch/reference/current/esql-rest.html
+- Elastic ESQL Demo: https://esql.demo.elastic.co
