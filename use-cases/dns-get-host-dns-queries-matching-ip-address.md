@@ -8,29 +8,29 @@ Find the DNS name for an IP-address seen in logs. For example, if there are any 
 ### Show events with DNS question resolving to a specific IP-address
 ```
 FROM logs-endpoint.events.network-*
-| where event.action == "lookup_result" and event.outcome == "success"
-| dissect message "%{content}::ffff:%{dns.resolved_ip};"
-| where dns.resolved_ip == "INSERT IP HERE"
-| keep @timestamp,host.name,dns.question.name,dns.question.type,dns.resolved_ip, message
+| WHERE event.action == "lookup_result" and event.outcome == "success"
+| DISSECT message "%{content}::ffff:%{dns.resolved_ip};"
+| WHERE dns.resolved_ip == "INSERT IP HERE"
+| KEEP @timestamp,host.name,dns.question.name,dns.question.type,dns.resolved_ip,message
 
 ```
 
 ### Show all DNS query results grouped by dns.question.name(result)
 ```
 FROM logs-endpoint.events.network-*
-| where event.action == "lookup_result" and event.outcome == "success"
-| dissect message "%{content}::ffff:%{dns.resolved_ip};"
-| where dns.resolved_ip == "INSERT IP HERE"
+| WHERE event.action == "lookup_result" and event.outcome == "success"
+| DISSECT message "%{content}::ffff:%{dns.resolved_ip};"
+| WHERE dns.resolved_ip == "INSERT IP HERE"
 | STATS COUNT(*) BY dns.question.name
 ```
 
 ### Show all DNS results grouped by dns.question.name(result) and host.name
 ```
 FROM logs-endpoint.events.network-*
-| where event.action == "lookup_result" and event.outcome == "success"
-| dissect message "%{content}::ffff:%{dns.resolved_ip};"
-| where dns.resolved_ip is "INSERT IP HERE"
-| keep @timestamp,host.name,dns.question.name,dns.question.type,dns.resolved_ip, message
-| STATS COUNT(*) BY dns.question.name, host.name
+| WHERE event.action == "lookup_result" and event.outcome == "success"
+| DISSECT message "%{content}::ffff:%{dns.resolved_ip};"
+| WHERE dns.resolved_ip == "INSERT IP HERE"
+| KEEP @timestamp,host.name,dns.question.name,dns.question.type,dns.resolved_ip,message
+| STATS COUNT(*) BY dns.question.name,host.name
 
 ```
