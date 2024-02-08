@@ -9,13 +9,12 @@ Upload the file to a Elastic index and create a enrichment policy.
 
 ## ESQL Query
 ```
-from logs-endpoint
-| where event.code is not null
-| stats event_code_count = count(event.code) by event.code,host.name
-| enrich win_events on event.code with EVENT_DESCRIPTION
-| where EVENT_DESCRIPTION is not null and host.name is not null
-| rename EVENT_DESCRIPTION as event.description
-| sort event_code_count desc
-| keep event_code_count,event.code,host.name,event.description
-
+FROM logs-endpoint
+| WHERE event.code is not null
+| STATS event_code_count = count(event.code) by event.code,host.name
+| ENRICH win_events on event.code with EVENT_DESCRIPTION
+| WHERE EVENT_DESCRIPTION is not null and host.name is not null
+| RENAME EVENT_DESCRIPTION as event.description
+| SORT event_code_count desc
+| KEEP event_code_count,event.code,host.name,event.description
 ```
