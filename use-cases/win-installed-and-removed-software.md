@@ -1,4 +1,4 @@
-# Detect installed and remove Software on Windows
+# Detect installed and removed Software on Windows
 
 ## Use-case
 Find all installed and/or removed software on Windows. 
